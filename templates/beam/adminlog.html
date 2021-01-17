@@ -1,0 +1,21 @@
+{% extends 'base3.html' %}
+
+{% block title %}Войдите в панель администратора{% endblock %}
+
+{% block content %}
+	<div class="adminC">
+		<div class="container">
+			<div class="adminloginWindow">
+				<div class="adminH"><h2>Войдите в панель администратора!</h2></div>
+				<div class="formArea">
+					{{ form_start(form1) }}
+					{{ form_label(form1.login) }}<br>
+					{{ form_widget(form1.login) }}<br>
+					{{ form_label(form1.password) }}<br>
+					{{ form_widget(form1.password) }}<br>
+					{{ form_end(form1) }}
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

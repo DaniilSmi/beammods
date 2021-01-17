@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Создатель{% endblock %}
+
+{% block content %}
+	<div class="creatorBlock">
+		<div class="container">
+			<img src="{{info.img_url}}" width="250px" style="margin-bottom: 50px;">
+			<div class="contentText">
+				<p>{{info.text|raw}}</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

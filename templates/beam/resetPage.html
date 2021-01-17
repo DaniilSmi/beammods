@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Сбросить пароль{% endblock %}
+
+{% block content %}
+	<div class="blockResetPage">
+		<div class="pageText">
+			{{form_start(form3)}}
+			<div class="jsc codeInput">{{form_widget(form3.code)}}</div>
+			<div class="jsc codeInput">{{form_widget(form3.submit)}}</div>
+			{{form_end(form3)}}
+		</div>
+		<div class="form">
+			{{form_start(form2)}}
+			<div class="jsc">{{form_widget(form2.email)}}</div>
+			<div class="jsc">{{form_widget(form2.submit)}}</div>
+			{{form_end(form2)}}
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	{{script|raw}}
+{% endblock %}

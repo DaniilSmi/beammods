@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/other/indexStyle.css') }}" async>
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/other/Fonts/fonts.css') }}" async>
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/other/adaptate.css') }}" async>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet" async>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" async>
+	{% block stylesheet %}
+	{% endblock %}
+</head>
+<body>
+	<header>
+			<div class="container">
+				<a href="/" id="logoImg">{% block titleImg %}<img src="{{ asset('asset/other/images/svg/183_208184208188208181208189208184-1.svg') }}" height="50px">{% endblock %}</a>
+				<nav><a class="navHref" href="/setup">Установка</a> <a class="navHref" href="/howtouploadmod">Как выложить?</a> <a class="navHref" href="/forum">Форум</a> {% if app.session.get('logged_user') is empty %}<a class="navHref" onclick="openLogin()"><div id="headerDoor"><div id="pointDoor"></div></div></a>{% else %}<a class="navHref" href="/profile">Профиль</a><a class="navHref" href="/logout">Выйти</a>{% endif %} <div class="donateHeaderButt"><a href="https://my.qiwi.com/Danyl-S-InEdPHg-"><button>Пожертвовать</button></a></div></nav>
+			</div>
+		</header>
+		<div class="loginWindow">
+			<div id="titleheadLogin"><span>Войти</span></div>
+			<button id="closeLogin" onclick="closeLogin()"><img src="{{ asset('asset/other/images/svg/cross.svg') }}"></button>
+			{{ form_start(form) }}
+			{{ form_widget(form.loginEmail) }}
+			{{ form_widget(form.passwordInput) }}
+			<div class="jsc">{{ form_widget(form.submitLogin) }}</div>
+			<div class="jsc"><a href="/register/" class="hrefsLogin">Нет аккаунта?</a><a href="resetPassword/" class="hrefsLogin">Забыли пароль?</a></div>
+			{{ form_end(form) }}
+		</div>
+{% block content %}{% endblock %}
+		
+
+		<footer>
+			<div class="block1footer">
+				<div class="container">
+					<img src="{{ asset('asset/other/images/svg/183_208184208188208181208189208184-1.svg') }}" height="50px" id="footerImg">
+					<div class="textFooter1">beammods.ru - это сообщество мододелов, которые могут на свободной основе выложить свой мод здесь.</div>
+					<div class="modifications"><img src="{{ asset('asset/other/images/svg/web.svg') }}" id="modddd"> <div class="modInf"><span> - на сайте <span class="modInfC"></span> модификации</span></div></div>
+				</div>
+			</div>
+			<div class="block2footer">
+				<div class="container">
+					<div class="rights"><span>beammods.ru ©2020-2020 Все права защищены</span></div>
+					<nav class="navFooter"><a href="/" class="footerNavHref">Главная</a><a href="/forum" class="footerNavHref">Форум</a> <a href="/contacts" class="footerNavHref">Контакты</a> <a href="/aboutus" class="footerNavHref">О нас</a> <a href="/creator" class="footerNavHref">Создатель</a></nav>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="{{ asset('asset/other/js/js.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('asset/other/js/searchD.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('asset/other/js/modi.js') }}"></script>
+		{% block javascript %}{% endblock %}
+</html>
+</body>
+</html>

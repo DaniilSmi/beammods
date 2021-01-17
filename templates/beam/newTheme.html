@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if app.session.get('logged_user') %}
+	<div class="newThemeF">
+		<div class="container">
+			{{form_start(form2)}}
+			{{form_widget(form2)}}
+			{{form_end(form2)}}
+		</div>
+	</div>
+	{% else %}
+	<span>Войдите в аккаунт!</span>
+	{% endif %}
+{% endblock %}

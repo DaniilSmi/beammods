@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ttheme.title}}{% endblock %}
+
+{% block content %}
+		<div class="themeContentContainer">
+			<div class="container">
+				<div class="themeName"><span>{{ttheme.title}}</span></div>
+					<!--<table cellpadding="0" class="tableMessage">				
+						<tr class="messageInfoHeader"><td width="30%"><span>Ник человека</span></td><td><span>Дата: Пятница, 16.08.2013, 04:45</span></td></tr>
+						<tr class="trtrtr"><td width="30%" style="border-right: 2px solid #aeaeae;"><div class="jsc"><img src="other/images/47tv.gif" id="maxmaxImg"></div><div class="niikPerson"><span>Ник человека</span></div></td><td class="paddDe">
+							<p>Просто так не надо протсо я та ксказал</p>
+						</td></tr>
+						<tr class="messageInfoHeader"><td width="30%"></td><td><a href="javascript://" onclick="doArea('code', '45', '1')" style="float: right;">Ответить</a></td></tr>
+					</table>
+					<table cellpadding="0" class="tableMessage">				
+						<tr class="messageInfoHeader"><td width="30%"><span>Ник человека</span></td><td><span>Дата: Пятница, 16.08.2013, 04:45</span></td></tr>
+						<tr class="trtrtr"><td width="30%" style="border-right: 2px solid #aeaeae;"><div class="jsc"><img src="other/images/47tv.gif" id="maxmaxImg"></div><div class="niikPerson"><span>Ник человека</span></div></td><td class="paddDe">
+							<p>Просто так не надо протсо я та ксказал</p>
+						</td></tr>
+						<tr class="messageInfoHeader"><td width="30%"></td><td><a href="javascript://" onclick="doArea('code', '45', '1')" style="float: right;">Ответить</a></td></tr>
+					</table>-->
+
+					{% for a in ans %}
+						<table cellpadding="0" class="tableMessage">				
+						<tr class="messageInfoHeader"><td width="30%"><span>{{a.user_name}}</span></td><td><span>Дата: {{a.datetime}}</span></td></tr>
+						<tr class="trtrtr"><td width="30%" style="border-right: 2px solid #aeaeae;"><div class="jsc"><img src="/asset/img/user/{{a.user_image}}" id="maxmaxImg"></div><div class="niikPerson"><span>{{a.user_name}}</span></div></td><td class="paddDe">
+							<p>{{a.text|raw}}</p>
+						</td></tr>
+						<tr class="messageInfoHeader"><td width="30%"></td><td><a href="javascript://" onclick="doArea('{{a.user_name}}', '{{a.id}}')" style="float: right;">Ответить</a></td></tr>
+					</table>
+					{% endfor %}
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="pagination">
+					<!--<a href="#" class="firstPagiHref"><div id="pagiFirst">1</div></a>
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">1</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">2</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">3</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">4</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">5</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">6</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">7</div></a>
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					<a href="#" class="firstPagiHref"><div id="pagiEnd">34</div></a>-->
+					<a href="/forum/{{slug}}/1" class="firstPagiHref"><div id="pagiFirst">1</div></a>
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					{% if (page == 1) %}
+						
+						<a class="firstPagiHref" href="/forum/{{slug}}/1"><div id="pagiTypical" class="currentPagiPage">1</div></a>
+						{% if (page+1 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+1}}"><div id="pagiTypical">{{page+1}}</div></a>{% endif %}
+						{% if (page+2 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+2}}"><div id="pagiTypical">{{page+2}}</div></a>{% endif %}
+						{% if (page+3 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+3}}"><div id="pagiTypical">{{page+3}}</div></a>{% endif %}
+						{% if (page+4 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+4}}"><div id="pagiTypical">{{page+4}}</div></a>{% endif %}
+						{% elseif (page==2) %}
+						{% if (page-1 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page-1}}"><div id="pagiTypical">{{page-1}}</div></a>{% endif %}
+						{% if (page <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page}}"><div id="pagiTypical" class="currentPagiPage">{{page}}</div></a>{% endif %}
+						{% if (page+1 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+1}}"><div id="pagiTypical">{{page+1}}</div></a>{% endif %}
+						{% if (page+2 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+2}}"><div id="pagiTypical">{{page+2}}</div></a>{% endif %}
+						{% if (page+3 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+3}}"><div id="pagiTypical">{{page+3	}}</div></a>{% endif %}
+						{% else %}
+						{% if (page-2 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page-2}}"><div id="pagiTypical">{{page-2	}}</div></a>{% endif %}
+						{% if (page-1 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page-1}}"><div id="pagiTypical">{{page-1	}}</div></a>{% endif %}
+						{% if (page <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page}}"><div id="pagiTypical" class="currentPagiPage">{{page}}</div></a>{% endif %}
+						{% if (page+1 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+1}}"><div id="pagiTypical">{{page+1}}</div></a>{% endif %}
+						{% if (page+2 <= len) %}<a class="firstPagiHref" href="/forum/{{slug}}/{{page+2}}"><div id="pagiTypical">{{page+2}}</div></a>{{page+2}}</a>{% endif %}
+					{% endif %}
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					<a href="/forum/{{slug}}/{{len}}" class="firstPagiHref"><div id="pagiEnd">{{len}}</div></a>
+			</div>
+		</div>
+		
+		<div class="block3IndexPage other">
+			<div class="container">		
+					<div class="block3InfilecarInfo">
+						<hr class="prHeaderHr2">
+						<div class="contentBlock3CarInfo">
+							
+							{% if app.session.get('logged_user') %}
+								{{ form_start(cForm) }}
+								<button id="addtag1" type="button" class="buttonForArea buttonForArea2"><img src="{{ asset('asset/other/images/svg/format-bold_117197.svg') }}"></button><button id="addtag2" type="button" class="buttonForArea buttonForArea2"><img src="{{ asset('asset/other/images/svg/italic_icon-icons.com_70938.svg') }}"></button><br>
+								{{ form_widget(cForm) }}
+								{{ form_end(cForm) }}
+							{% else %}
+								<span>Вы не авторизованы!</span>
+							{% endif %}
+							<hr class="prHeaderHr2">
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+{% block titleImg %}<img src="{{ asset('asset/other/images/svg/The_beam_forum_logo_2_.svg') }}" height="50px">{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ asset('asset/other/js/infile.js') }}"></script>
+{% endblock %}

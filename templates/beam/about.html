@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}О Нас{% endblock %}
+
+{% block content %}
+	<div class="aboutBlock">
+		<div class="container">
+			<p>{{info.text|raw}}</p>
+		</div>
+	</div>
+{% endblock %}

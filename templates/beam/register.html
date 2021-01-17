@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}BEAMMODS - REGISTER{% endblock %}
+
+{% block content %}
+		<div class="block2IndexPage">
+			<div class="container">
+				<div class="navoptions">
+					<div id="searchFormPg">
+						<input type="text" name="searchSite" id="searchSite" required="" placeholder="Поиск по сайту">
+						<button type="submit" name="submitSearchSite" id="submitSearchSite"><img src="{{ asset('asset/other/images/svg/justSearch.svg') }}"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="block3IndexPage other">
+			<div class="container">
+				<div class="contentBlock3IndexPage">	
+					<div class="registerBlock">
+						<div class="headerRegisterBlock"><span>Регистрация</span></div>
+						<form action="" method="POST">
+							<!--<input type="text" class="loginInput regInput" placeholder="Введите логин" name="loginInputRegister"><br>
+							<input type="email" class="loginInput regInput" placeholder="Введите email" name="emailInputRegister"><br>
+							<input type="password" class="loginInput regInput" placeholder="Введите пароль" name="passwordInputRegister"><br>
+							<input type="password" class="loginInput regInput" placeholder="Подтвердите пароль" name="password2InputRegister"><br>
+							<button type="submit" id="submitlogin" name="submitregister">Регистрация</button>-->
+
+							{{form_start(form2)}}
+							{{form_widget(form2)}}
+							{{form_end(form2)}}
+							{{error|raw}}
+						</form>
+					</div>
+				</div>
+				<div class="ads">
+					<div class="headerAds">Реклама</div>
+					<div class="mostAds"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+{% endblock %}

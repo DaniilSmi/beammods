@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title  %}BEAMMODS{% endblock %}		
+
+{% block content %}
+		<div class="block1IndexPage">
+				<div class="back" style="background: url(/asset/img/index/{{result.image}}) no-repeat fixed; background-size: cover;"></div>
+				<div class="mate"></div>
+				<div class="otherInfo">
+					<div class="container">
+					<div class="textInfoOtherBl1"><p>{{result.text}}</p></div>
+
+						<a href="/setup"><button id="downloadGameIndex">Установить</button></a>
+				</div>
+			</div>
+		</div>
+		<div class="block2IndexPage">
+			<div class="container">
+				<div class="navoptions">
+					<form>
+					<select class="select-css">
+						<option value="dateNew">Сортировать по:</option>
+						<option value="dateNew">Дате(новые)</option>
+						<option value="dateOld">Дате(старые)</option>
+						<option value="size">Весу</option>
+					</select>
+				</form>
+					<div id="searchFormPg">
+						<input type="text" name="searchSite" id="searchSite" required="" placeholder="Поиск по сайту">
+						<button type="submit" name="submitSearchSite" id="submitSearchSite"><img src="{{ asset('asset/other/images/svg/justSearch.svg') }}"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="block3IndexPage">
+			<div class="container">
+				<div class="contentBlock3IndexPage">
+				<div class="forfor"></div>
+				<div class="pagination">
+					<!--<a href="#" class="firstPagiHref"><div id="pagiFirst">1</div></a>
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">1</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical" class="currentPagiPage">2</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">3</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">4</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">5</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">6</div></a>
+					<a class="firstPagiHref" href="#"><div id="pagiTypical">7</div></a>
+					<a class="firstPagiHref2"><div id="pagiTypical">..</div></a>
+					<a href="#" class="firstPagiHref"><div id="pagiEnd">34</div></a>-->
+					45
+					
+				</div>
+				</div>
+				<div class="ads">
+					<div class="headerAds">Реклама</div>
+					<div class="mostAds"></div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}
+
+{% block javascript %}<script type="text/javascript" src="{{ asset('asset/other/order.js') }}"></script>{% endblock %}

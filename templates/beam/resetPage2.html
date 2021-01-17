@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Сбросить пароль{% endblock %}
+
+{% block content %}
+	<div class="blockResetPage">
+		{{ form_start(form2) }}
+		<div class="jsc">{{ form_widget(form2.password1) }}</div>
+		<div class="jsc">{{ form_widget(form2.password2) }}</div>
+		<div class="jsc">{{ form_widget(form2.submit) }}</div>
+		{{ form_end(form2) }}
+	</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

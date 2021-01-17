@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}{{file.title}}{% endblock %}
+
+{% block stylesheet %}
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+		<div id="MyModal">
+			<span id="closeModal" style="cursor: pointer;">&times;</span>
+			<img class="modal-content">
+			<span id="modalPrevImage"><</span>
+			<span id="modalNextImage">></span>
+			<span style="visibility: hidden;" id="idIgmModal"></span>
+		</div>
+
+		<div class="block2IndexPage">
+			<div class="container">
+				<div class="navoptions">
+					<div id="searchFormPg">
+						<input type="text" name="searchSite" id="searchSite" required="" placeholder="Поиск по сайту">
+						<button type="submit" name="submitSearchSite" id="submitSearchSite"><img src="{{ asset('asset/other/images/svg/justSearch.svg') }}"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="block3IndexPage other">
+			<div class="container">
+				<div class="contentBlock3IndexPage">	
+					<div class="block1InfileCarInfo">
+						<div class="headerCarInfoInfile">
+							<div class="infileContainer">
+								<div class="titleCarInfo"><span>МОД {{file.title}} ДЛЯ BEAMNG.DRIVE</span></div>
+								<button id="likeButt" onclick="setLike({{file.id}});"><img src="{{ asset('asset/other/images/svg/like.svg') }}"> <span class="likesInButt" style="cursor: pointer;">{{likes}}</span></button>
+							</div>
+						</div>
+						<hr>
+						<div class="imagesBlock">
+							<div class="infileContainer">
+								<div class="jsc fImage"><!--<img id="firstImage" class="modalImage" src="">--></div>
+								
+								<div class="containerOtherImages">
+		
+										<!--<img class="modalImage gridS" src="">
+										<img class="modalImage gridS" src="">
+										<img class="modalImage gridS" src="">-->
+
+									
+								</div>
+								<hr id="hrE">
+									<div class="textBlock">
+											<p>{{file.textAbout}}</p>
+									</div>
+								<hr id="hrE">
+								<div class="blockMostInfoCar">
+									<div class="info1">Опубликовано: <a href="" class="hrefCarInfo">{{file.user_loader_name}}</a></div><div class="info2"><img src="{{ asset('asset/other/images/svg/clock (1).svg') }}"> <!--20-21-2020 18:47--> {{file.date_time}}</div>
+								</div>
+								<hr id="hrE">
+								<div class="otherCarInfo">
+									<div class="info1">Автор: <a href="" class="hrefCarInfo">{{file.author}}</a></div>
+									<div class="info1 sss2">Марка: <a href="" class="hrefCarInfo">{{file.brand}}</a></div>
+									<div class="info1">Тип кузова: <a href="" class="hrefCarInfo">{{file.body_type}}</a></div>
+									<div class="info1 sss2">Опубликовано: <a href="" class="hrefCarInfo">{{file.user_loader_name}}</a></div>
+									<div class="info1">Привод: <a href="" class="hrefCarInfo">{{file.drive_init}}</a></div>
+									<div class="info1 sss2">Руль: <a href="" class="hrefCarInfo">{% if file.driving_wheel == true %}Левый{% else %}Правый{% endif %}</a></div>
+								</div>
+								<hr id="hrE">
+								<div class="buttonBlock">
+									<a href="/downloadMod/{{file.id}}" id="downloadHrefInfile"><button id="downloadButton"><div class="buttonTitleDownload">Скачать</div><div class="titleNameDownload">{{file.title}} ДЛЯ BEAMNG.DRIVE</div><div class="sizeDownload">{{file.modSize}}мб</div></button></a>
+								</div>
+								<div class="footerCarInfo">
+									<div class="info1FooterCar"><img src="{{ asset('asset/other/images/svg/bigPrev.svg') }}" id="bigPrev"><span>Просмотров: {{file.watches}}</span></div><div class="info2FooterCar"><span>Загрузки: {{file.downloads}}</span><img src="{{ asset('asset/other/images/svg/bigDownload.svg') }}" id="bigDown"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="block2InfilecarInfo">
+						<div class="infileContainer">
+							<div class="headerBlock2Car"><span>Похожие моды</span></div>
+							<hr class="prHeaderHr">
+							<div class="modsLooking">
+								{% set aa = 0 %}
+								{% for a in resultL %}
+									{% if file.id != a.id %}
+									{% set aa = aa + 1 %}
+									<div class="modLooking">
+									<img src="/asset/img/mod/{{a.fim}}">
+									<div class="writenMod"><a href="/mod/{{a.id}}">{{a.title}}</a></div>
+								</div>
+									{% endif %}
+								{% endfor %}
+								{%if aa == 0%}
+									Нет похожих!
+								{% endif %}
+
+						
+							</div>
+						</div>
+					</div>
+
+
+					
+					<div class="block3InfilecarInfo">
+						<div class="headerBlock2Car"><span>Комментарии</span></div>
+						<hr class="prHeaderHr2">
+						<div class="contentBlock3CarInfo">
+							
+							{% if app.session.get('logged_user') %}
+							{{form_start(commForm)}}
+							<button id="addtag1" type="button" class="buttonForArea"><img src="{{ asset('asset/other/images/svg/format-bold_117197.svg') }}"></button><button id="addtag2" type="button" class="buttonForArea"><img src="{{ asset('asset/other/images/svg/italic_icon-icons.com_70938.svg') }}"></button><br>
+							{{form_widget(commForm)}}
+							{{form_end(commForm)}}
+							{%else%}
+							<p>Вы не авторизованы!</p>
+							{% endif %}
+							<hr class="prHeaderHr2">
+							<div class="commentsArea">
+
+								
+								
+							</div>
+						
+
+
+						</div>
+						
+					</div>
+
+
+
+				</div>
+				<div class="ads">
+					<div class="headerAds">Реклама</div>
+					<div class="mostAds"></div>
+				</div>
+			</div>
+		</div>
+
+
+		{% endblock %}
+
+		{% block javascript %}
+			<script type="text/javascript" src="{{ asset('asset/other/js/infile.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('asset/other/js/modal.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('asset/other/js/infileshow.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('asset/other/js/getComments.js') }}"></script>
+			{{scriptImg|raw}}
+			{{script2|raw}}
+		{% endblock %}

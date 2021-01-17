@@ -1,0 +1,20 @@
+
+					<a href="#" class="hrefCar">
+					<div class="blockTypicalCar">
+						<div class="blockTitle">МОД {{a.title}} ДЛЯ BEAMNG.DRIVE</div>
+						<img src="{{ asset('asset/other/images/beam.jpg') }}" id="imageCarTipical">
+						<div class="otherContentCar">
+							<div class="someText">
+								{{a.textAbout}}
+							</div>
+							<hr>
+							<div class="infoIcons">
+								<div class="viewsCar"><img src="{{ asset('asset/other/images/svg/preview.svg') }}"> {{a.watches}}</div>
+								<div class="commentsCar"><img src="{{ asset('asset/other/images/svg/comment.svg') }}"> {{a.comments}}</div>
+								<div class="downloadsCar"><img src="{{ asset('asset/other/images/svg/download.svg') }}"> {{a.downloads}}</div>
+							</div>
+							<hr>
+							<a href="#" id="downloadHref" download><div class="donateHeaderButt secondButt"><button>Скачать</button></div></a>
+						</div>
+					</div>
+				</a>

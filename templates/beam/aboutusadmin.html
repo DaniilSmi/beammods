@@ -1,0 +1,14 @@
+{% extends 'base3.html' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block content %}
+	<div class="AdminblockPage">
+		<div class="container">
+			<form action="" method="POST">
+				<textarea name="textAbout" style="width: 100%; height: 500px;">{{info.text}}</textarea><br>
+				<button type="submit" name="submitAboutUs">Изменить</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

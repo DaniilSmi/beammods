@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{{slug}}{% endblock %}
+
+{% block content %}
+		<div class="searchResultsBlock1">
+			<div class="container">
+				<div class="headerSearchResults"><img src="{{ asset('asset/other/images/svg/lense.svg') }}"><span>Поиск	</span></div>
+				<hr class="hrSearch">
+				<div class="blockSearchInfo">
+					<div class="finded"><span>Найдено: {{find}}</span></div>
+								
+					<div id="searchFormPg" class="searchFormPgSearchHeader">
+						<input type="text" name="searchSite" id="searchSite" required="" placeholder="Поиск по сайту" value="{{slug}}">
+						<button type="submit" name="submitSearchSite" id="submitSearchSite"><img src="{{ asset('asset/other/images/svg/justSearch.svg') }}"></button>
+					</div>
+				
+				</div>
+				<hr class="hrSearch">
+			</div>
+		</div>
+		<div class="sqlB" style="display: none;">{{sql}}</div>
+		<div class="block3IndexPage">
+			<div class="container">
+				<div class="contentBlock3IndexPage">
+					<div class="forfor"></div>
+					
+	
+				<div class="pagination">
+				
+				</div>
+				</div>
+				<div class="ads">
+					<div class="headerAds">Реклама</div>
+					<div class="mostAds"></div>
+				</div>
+			</div>
+		</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ asset('asset/other/js/searchEngine.js') }}" async></script>
+{% endblock %}

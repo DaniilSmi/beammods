@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить мод{% endblock %}
+
+{% block content %}
+	<div class="addBlock">
+		<div class="container">
+			{% if app.session.get('logged_user') %}
+			<form action="" method="POST" id="fffff" enctype="multipart/form-data">
+				<input type='text' name="titleAddmod" required="" placeholder="Введите название мода" class="loginInput"><br>
+				<input type='text' name="authorAddmod" required="" placeholder="Введите автора" class="loginInput"><br>
+				<input type='text' name="brandAddmod" required="" placeholder="Введите марку авто" class="loginInput"><br>
+				<input type='text' name="btAddmod" required="" placeholder="Введите кузов" class="loginInput"><br>
+				<input type='text' name="diAddmod" required="" placeholder="Введите привод" class="loginInput"><br>
+				
+				<div style="margin-top: 30px">Левый руль? -<input type="checkbox" name="drwheelAddmod"></div><br>
+
+				<div style="margin-top: 30px">Картинки  - <input type="file" name="files[]" id="justD" multiple="" required="" accept="image/x-png,image/jpeg, image/gif, image/svg"></div><br>
+				<div style="margin-top: 30px">Мод  - <input type="file" name="mod" id="justD" required="" accept="application/zip"></div><br>
+				<textarea name="addmodArea" class="areaFor" placeholder="Введите описание мода"> </textarea>
+				<button type="submit" class="submitLogin" name="submitAddMod">Отправить</button>
+			</form>
+			{% else %}
+			<div style="margin-top: 100px; font-size: 25px;"><span>Войдите в аккаунт!</span></div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

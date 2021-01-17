@@ -1,0 +1,15 @@
+{% extends 'base3.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+	<div class="aboutBlock">
+		<div class="container">
+			<form action="" method="POST" enctype="multipart/form-data">
+				<textarea name="indexAdminPage">{{info.text}}</textarea><br>
+				<input type="file" name="imageIndexAdmin" id="justD"><br>
+				<button type="submit" name="bIndexAdmin">Изменить</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Форум{% endblock %}
+
+{% block content %}
+		<div class="themesForum">
+			<div class="container">
+				<table class="forumTable">
+					<tr><td class="subtop1">Тема </td><td class="subtop2">Ответы</td><td class="subtop3">Просмотры</td><td class="subtop4">Автор темы</td></tr>
+					<!--<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>
+					<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>
+					<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>
+					<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>
+					<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>
+					<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="#" class="tableHref">Почему я идиот??</a></h2><br>Отвечаю на вопросы </td><td class="subtop2 noneTop">45</td><td class="subtop3 noneTop">2222</td><td class="subtop4 noneTop">Просто дебтл</td></tr>-->
+					{% for a in theme %}
+						<tr><td class="subtop1 noneTop"><h2 class="hTable"><a href="forum/{{a.id}}/" class="tableHref">{{a.title}}</a></h2><br>{{a.subtitle}}</td><td class="subtop2 noneTop">{{a.answers}}</td><td class="subtop3 noneTop">{{a.views}}</td><td class="subtop4 noneTop">{{a.theme_author}}</td></tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+
+		<div class="newTheme">
+			<div class="container">
+				{% if app.session.get('logged_user') %}
+					<a href="/newThemeForum/">Создать новую тему</a>
+				{% else %}
+					<span>Войдите в аккаунт для создания темы!</span>
+				{% endif %}
+			</div>
+		</div>
+{% endblock %}
+		
+{% block titleImg %}<img src="{{ asset('asset/other/images/svg/The_beam_forum_logo_2_.svg') }}" height="50px">{% endblock %}

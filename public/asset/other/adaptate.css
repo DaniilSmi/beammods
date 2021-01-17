@@ -1,0 +1,114 @@
+/*660 px*/
+
+/* for index page */
+@media screen and (max-width: 2562px) {
+	.block1IndexPage {
+		height: 1050px;
+	}
+
+	#downloadGameIndex {
+		right: 695px;
+	}
+
+	.ads {
+		width: 7%;
+	}
+}
+
+
+@media screen and (max-width: 1565px) {
+	#downloadGameIndex {
+		right: 190px;
+	}
+	.ads {
+		width: 14.6%;
+	}
+
+	.block1IndexPage {
+		height: 660px;
+	}
+}
+
+
+@media screen and (max-width: 1080px) {
+	.container {
+		width: 960px;
+	}
+
+	.ads {
+		width: 17%;
+	}
+
+	#downloadGameIndex {
+		right: 32px;
+	}
+
+	.blockTypicalCar {
+		height: 300px;
+	}
+
+	.blockTitle {
+		height: 50px;
+		font-size: 0.75em;
+	}
+
+	#imageCarTipical {
+		width: 450px;
+		height: calc(100% - 50px);
+	}
+
+	.otherContentCar {
+		width: 250px;
+	}
+
+	.someText {
+		font-size: 12px;
+		height: 140px;
+	}
+
+	.textFooter1 {
+		width: 400px;
+		font-size: 14px;
+		margin-left: 100px;
+	}
+
+	.navHref{
+		margin-left: 40px;
+	}
+}
+
+/* for download page */
+
+/* for forumIndex page */
+
+@media screen and (max-width: 1080px) {
+	#forumLogo {
+		width: 140px;
+	}
+}
+
+/* for infile page */
+
+@media screen and (max-width: 1080px) {
+	.modsLooking, .otherCarInfo, .blockMostInfoCar, .footerCarInfo {
+		width: 600px;
+	}
+
+	#searchSite {
+		width: 160px;
+	}
+}
+
+/* for inforum page */
+
+@media screen (max-width: 1080px) {
+	.tableMessage {
+		width: 960px;
+	}
+}
+
+
+/* for register page */
+
+/* for search page */
+

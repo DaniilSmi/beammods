@@ -1,0 +1,29 @@
+{% extends 'base3.html' %}
+
+{% block title %}Пользователи - админы{% endblock %}
+
+{% block content %}
+	<div class="AdminblockPage">
+		<div class="container">
+			<form action="" method="POST" >
+				<h2>Создать администратора</h2>
+				<input type="text" placeholder="Введите логин" name="newAdminLogin" class="adloginInput"><br>
+				<input type="password" placeholder="Введите пароль" name="newAdminPassword" class="adloginInput"><br>
+				<button type="submit" name="submitNewAdmin">Создать</button>
+			</form>
+			<hr style="margin-bottom: 50px;">
+			{{form_start(searchForm)}}
+			{{form_widget(searchForm)}}
+			{{form_end(searchForm)}}
+			<hr>
+			{% for a in users %}
+				<form action="" method="POST">
+					<input type="text" value="{{a.id}}" name="userId" style="display: none;">
+					{{a.login}} Удалить? - <input type="checkbox" name="chBox">
+					<button type="submit" name="adminUserSubmit">Подтвердить</button>
+				</form>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

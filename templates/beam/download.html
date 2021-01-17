@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Скачать - {% endblock %}
+
+
+{% block content %}
+	<div class="blockContent1Load">
+		<div class="container">
+			<div class="ads1"></div>
+			<div class="otherContent">
+				<div class="downloadTitleMod"><span>Скачать {{file.title}} для BEAMNG.DRIVE</span></div>
+				<div class="jsc"><div class="timerDownload"><span>60</span></div></div>
+				<div class="jsc"><div class="donateHeaderButt dnb2"><a href="{{asset('asset/mod/')}}{{file.modFile}}" download class="typ"><button>Скачать мод</button></a></div></div>
+			</div>
+			<div class="ads1 margin250"></div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ asset('asset/other/js/timer.js') }}"></script>
+{% endblock %}

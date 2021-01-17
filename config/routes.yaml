@@ -1,0 +1,115 @@
+index:
+   path: /
+   controller: App\Controller\DefaultController::index
+
+search:
+  path: /search
+  controller: App\Controller\SearchController::getInfo
+
+paginition:
+  path: /pagi
+  controller: App\Controller\PaginationController:getInfoPagi
+
+
+register:
+  path: /register
+  controller: App\Controller\RegisterPageController::getPage
+
+
+
+login:
+  path: /login
+  controller: App\Controller\LoginFormController::getData
+
+logout:
+  path: /logout
+  controller: App\Controller\LogoutController::logout
+
+profile:
+  path: /profile
+  controller: App\Controller\ProfileController::getProfilePage
+
+fileUpload:
+  path: /fileUpload
+  controller: App\Controller\UploadController::uploadFile
+
+resetpassword:
+  path: /resetPassword
+  controller: App\Controller\ResetController::getResetPage
+
+resetPage2:
+  path: /resetPassword2
+  controller: App\Controller\ResetPage2Controller::getResetPage
+
+
+infile:
+  path: /mod
+  controller: App\Controller\InfileController::getPage
+
+
+DoSql:
+  path: /sql
+  controller: App\Controller\PostUrlController::getInfo
+
+
+getComments:
+  path: /getComments
+  controller: App\Controller\CommentsGetController::getComment
+
+downloadMod:
+  path: /downloadMod
+  controller: App\Controller\DownloadController::download
+
+SearchMod:
+  path: /searchMod
+  controller: App\Controller\SearchModController::search
+
+
+getCBSql:
+  path: /getPagiSql
+  controller: App\Controller\GetPagiSqlController::getInfo
+
+
+forum:
+  path: /forum
+  controller: App\Controller\ForumController::showForumPages
+
+
+newTheme:
+  path: /newThemeForum
+  controller: App\Controller\NewThemeForumController::make
+
+
+aboutUs:
+  path: /aboutus
+  controller: App\Controller\AboutusController::show
+
+creator:
+  path: /creator
+  controller: App\Controller\CreatorController::show
+
+contacts:
+  path: /contacts
+  controller: App\Controller\ContactsController::show
+
+howToLoad:
+  path: /howtouploadmod
+  controller: App\Controller\HowloadController::show
+
+setup:
+  path: /setup
+  controller: App\Controller\SetupController::show
+
+getM:
+  path: /getM
+  controller: App\Controller\ModCController::getInfo
+
+
+showAddMod:
+  path: /addmod
+  controller: App\Controller\AddmodController::show
+
+
+admin:
+  path: /admin
+  controller: App\Controller\AdminController::show
